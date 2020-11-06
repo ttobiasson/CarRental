@@ -1,0 +1,25 @@
+Användargränssnitt:
+
+Simpelt UI med en startsida som innehåller två knappar, en som tar en 
+till bokning, och en som tar en till återlämning. På bokningssidan ska man fylla i 
+
+#Personnr
+#Bilkategori
+#Datum för bokning
+
+Det ska finnas en knapp som kallas "boka" som man trycker på när man fyllt i alla uppgifter som 
+behövs för att kunna hyra bilen. När man trycker på denna ska man mötas av sitt bokningsnummer och datum
+och tid då bokningen gäller ifrån, samt något trevligt meddelande t.ex "Tack för din bokning". Pris går inte
+att räkna ut i detta skede då vi inte vet hur långt kunden kommer att köra.
+
+På återlämningssidan ska man fylla i
+
+#Personnr
+#Bokningsnr
+#Mätarställning
+
+När man fyllt i detta ska det finnas en knapp som kallas "Återlämna", när man tryckt på den ska det visas
+något trevligt meddelande samt totala priset för uthyrningen, datum och tid då bilen återlämnades
+samt vilket bokningsnummer som detta gäller.
+
+
