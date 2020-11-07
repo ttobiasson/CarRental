@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarRental"
+        xmlns:view="clr-namespace:CarRental.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         xmlns:vw="clr-namespace:CarRental.Views">
     <Grid>
-        <vw:StartView></vw:StartView>
+        <ContentControl Content="{Binding StartView, Mode=OneWay}"></ContentControl>
+            
     </Grid>
 </Window>

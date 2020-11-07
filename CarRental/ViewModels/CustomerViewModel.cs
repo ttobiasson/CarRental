@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,19 +8,25 @@ using CarRental.Models;
 
 namespace CarRental.ViewModels
 {
-    class BookingViewModel : INotifyPropertyChanged
+    class CustomerViewModel : INotifyPropertyChanged
     {
+        Customer customer;
 
-        Booking booking;
-        public BookingViewModel()
+        public CustomerViewModel(int personalIDnr)
         {
-            booking = new Booking();
+            customer = new Customer(PersonalIDnr);
         }
-        public Booking Booking
+        
+        public int PersonalIDnr
         {
-            get { return booking; }
-            set { booking = value; 
-                RaisePropertyChanged("Booking"); 
+            get { return customer.PersonalIDnr; }
+            set { 
+                if(customer.PersonalIDnr != value)
+                {
+                    customer.PersonalIDnr = value;
+                    RaisePropertyChanged("PersonalIDnr");
+
+                }
             }
         }
 

@@ -7,9 +7,8 @@ using System.ComponentModel;
 
 namespace CarRental.Models
 {
-    public class Customer : INotifyPropertyChanged
+    public class Vehicle
     {
-
         #region Code for INotifiedPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
@@ -20,21 +19,13 @@ namespace CarRental.Models
             }
         }
         #endregion
-        
 
-        public Customer(int personalIDnr)
+        private string registrationNr;
+        private int mileage;
+
+        public float CalculatePrice()
         {
-            this.personalIDnr = personalIDnr;
-        }
-
-        private int personalIDnr;
-
-        public int PersonalIDnr
-        {
-            get { return personalIDnr; }
-            set { personalIDnr = value;
-                  OnPropertyChanged("PersonalIDnr");
-            }
+            return 0;
         }
     }
 }
