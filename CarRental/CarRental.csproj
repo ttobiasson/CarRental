@@ -61,7 +61,17 @@
     </Compile>
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\MiniVan.cs" />
+    <Compile Include="Models\SmallCar.cs" />
+    <Compile Include="Models\Van.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BookingViewModel.cs" />
+    <Compile Include="Views\StartView.xaml.cs">
+      <DependentUpon>StartView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -92,8 +102,16 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Resources\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

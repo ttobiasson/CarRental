@@ -4,17 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
 namespace CarRental.Models
 {
-    class Vehicle
+    class SmallCar : Vehicle
     {
-        private string registrationNr;
-        private int mileage;
-
-        public float CalculatePrice()
-        {
-            return 0;
-        }
     }
 }
