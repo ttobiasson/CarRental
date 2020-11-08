@@ -1,15 +1,10 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CarRental.Models;
 using CarRental.Models.Services;
 using CarRental.Commands;
-using System.Windows;
-using MySqlConnector;
+
 
 namespace CarRental.ViewModels
 {
@@ -20,7 +15,7 @@ namespace CarRental.ViewModels
         public BookingViewModel()
         {
             objBookingService = new BookingService(); // The booking service holds the database implementation
-            CurrentBooking = new Booking();
+            CurrentBooking = new Booking("init", new Vehicle(), new Customer(), 0);
             rentCommand = new RentButtonCommand(Rent);
         }
 
@@ -42,24 +37,7 @@ namespace CarRental.ViewModels
         {
             get { return  currentBooking; }
             set {
-                currentBooking = value switch
-                {
-                    Booking(_,null,null,_) => new Booking(value.BookingNumber,
-                                                          new Van(),
-                                                          new Customer(value.Customer.PersonalIDnr),
-                                                          value.Date),
-
-                    Booking(_,null,_,_) => new Booking(value.BookingNumber, 
-                                                       new Van(), //Currently, only Van is supported
-                                                       value.Customer, 
-                                                       value.Date),                                    
-
-                    Booking(_,_,null,_) => new Booking(value.BookingNumber, 
-                                                       value.Vehicle, 
-                                                       new Customer(value.Customer.PersonalIDnr), 
-                                                       value.Date),
-                    Booking(_,_,_,_) => value
-                };
+                currentBooking = value;
                 OnPropertyChanged("CurrentBooking");
             }
 
@@ -91,7 +69,7 @@ namespace CarRental.ViewModels
             
             
         }
-        public Vehicle checkIfVehicle(string vehicleType)
+        public bool checkIfVehicle(string vehicleType)
         //Check if chosen vehicle type exists
         {
             var baseType = typeof(Vehicle);
@@ -102,10 +80,10 @@ namespace CarRental.ViewModels
             {
                 if (t.ToString().Equals(vehicleType))
                 {
-                    
+                    return true;
                 }
             }
-            return null;
+            return false;
         }
 
         #region Rent Button Command implementation

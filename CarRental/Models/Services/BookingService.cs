@@ -43,9 +43,9 @@ namespace CarRental.Models.Services
 
                 var insertSQL = 
                     "INSERT INTO bookings VALUES (" +
-                    bookingNumber + "," +
+                    "\'" + bookingNumber + "\'," +
                     customer + "," +
-                    vehicle + "," +
+                    "\'" + vehicle + "\'," +
                     date + "," +
                     mileage +
                     ")";

@@ -13,11 +13,11 @@
         <viewModel2:ReturnButtonViewModel x:Key="returnbvm"></viewModel2:ReturnButtonViewModel>
     </UserControl.Resources>
     <Grid>
+        <TextBox x:Name="currentVMileage" HorizontalAlignment="Left" Height="30" Margin="283,41,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.Vehicle.Mileage}" FontSize="20" VerticalAlignment="Top" Width="325"/>
         <TextBox x:Name="bookingNumber" HorizontalAlignment="Left" Height="30" Margin="283,95,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.BookingNumber}" FontSize="20" VerticalAlignment="Top" Width="325" TextChanged="TextBox_TextChanged"/>
         <TextBox x:Name="personalIDnr" HorizontalAlignment="Left" Height="30" Margin="283,149,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.Customer.PersonalIDnr}" FontSize="20" VerticalAlignment="Top" Width="325"/>
         <TextBox x:Name="vehicleType" HorizontalAlignment="Left" Height="30" Margin="283,210,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.Vehicle}" FontSize="20" VerticalAlignment="Top" Width="325"/>
         <TextBox x:Name="date" HorizontalAlignment="Left" Height="30" Margin="283,270,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.Date}" FontSize="20" VerticalAlignment="Top" Width="325"/>
-        <TextBox x:Name="currentVMileage" HorizontalAlignment="Left" Height="30" Margin="283,41,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.Vehicle.Mileage}" FontSize="20" VerticalAlignment="Top" Width="325"/>
 
         <Label Content="Personal ID number" HorizontalAlignment="Left" Margin="142,153,0,0" VerticalAlignment="Top"/>
         <Label Content="Vehicle type" HorizontalAlignment="Left" Margin="182,214,0,0" VerticalAlignment="Top"/>

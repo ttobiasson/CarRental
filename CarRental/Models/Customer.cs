@@ -20,8 +20,11 @@ namespace CarRental.Models
             }
         }
         #endregion
-        
 
+        public Customer()
+        {
+
+        }
         public Customer(long personalIDnr)
         {
             this.personalIDnr = personalIDnr;

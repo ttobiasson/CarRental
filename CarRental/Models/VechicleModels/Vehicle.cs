@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace CarRental.Models
 {
-    public abstract class Vehicle : INotifyPropertyChanged
+    public class Vehicle : INotifyPropertyChanged
     {
         #region Code for INotifiedPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
