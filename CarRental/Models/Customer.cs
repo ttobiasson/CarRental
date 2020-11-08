@@ -36,5 +36,10 @@ namespace CarRental.Models
                   OnPropertyChanged("PersonalIDnr");
             }
         }
+        public void Deconstruct(out long personalIDnr)
+        {
+            personalIDnr = PersonalIDnr;
+            
+        }
     }
 }

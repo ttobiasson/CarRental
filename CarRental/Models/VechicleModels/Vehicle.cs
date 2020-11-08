@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace CarRental.Models
 {
-    public abstract class Vehicle :INotifyPropertyChanged
+    public abstract class Vehicle : INotifyPropertyChanged
     {
         #region Code for INotifiedPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -20,9 +21,9 @@ namespace CarRental.Models
         }
         #endregion
 
-        private string registrationNr;
+        private string registrationNumber;
         private int mileage;
-
+        
         public float CalculatePrice()
         {
             return 0;
@@ -37,5 +38,15 @@ namespace CarRental.Models
                 OnPropertyChanged("Mileage");
             }
         }
+        public string RegistrationNumber
+        {
+            get { return registrationNumber; }
+            set { registrationNumber = value;
+                OnPropertyChanged("RegistrationNumber");
+
+            }
+        }
+
+        
     }
 }

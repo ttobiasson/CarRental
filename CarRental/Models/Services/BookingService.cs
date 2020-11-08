@@ -33,11 +33,12 @@ namespace CarRental.Models.Services
             string vehicle = objNewBooking.Vehicle.GetType().ToString();
             string date = objNewBooking.Date.ToString();
             string mileage = objNewBooking.Vehicle.Mileage.ToString();
+
             try
             {
                 var cs = "Host=localhost;Username=postgres;Password=hatarlolmanlane;Database=bookings";
 
-                var con = new NpgsqlConnection(cs);
+                using var con = new NpgsqlConnection(cs);
                 con.Open();
 
                 var insertSQL = 
@@ -48,10 +49,11 @@ namespace CarRental.Models.Services
                     date + "," +
                     mileage +
                     ")";
+
                 var selectSQL = "SELECT * FROM bookings";
 
-                var insert = new NpgsqlCommand(insertSQL, con);
-                var select = new NpgsqlCommand(selectSQL, con);
+                using var insert = new NpgsqlCommand(insertSQL, con);
+                using var select = new NpgsqlCommand(selectSQL, con);
 
                 insert.ExecuteScalar();
                 

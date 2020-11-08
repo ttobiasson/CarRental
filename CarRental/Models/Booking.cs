@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Media.Animation;
 
 namespace CarRental.Models
 {
@@ -24,6 +25,13 @@ namespace CarRental.Models
         public Booking()
         {
             
+        }
+        public Booking(string bookingNumber, Vehicle v, Customer c, int date)
+        {
+            this.bookingNumber = bookingNumber;
+            this.customer = c;
+            this.vehicle = v;
+            this.date = date;
         }
         private string bookingNumber;
         private Customer customer;
@@ -59,7 +67,14 @@ namespace CarRental.Models
             }
         }
 
-
+        public void Deconstruct(out string bookingnr, out Vehicle vehicle, out Customer customer, out int date)
+        {
+            bookingnr = BookingNumber;
+            vehicle = Vehicle;
+            customer = Customer;
+            date = Date;
+            
+        }
 
     }
 }

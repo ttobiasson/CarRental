@@ -19,12 +19,12 @@ namespace CarRental.ViewModels
         private Booking currentBooking;
         public BookingViewModel()
         {
-            objBookingService = new BookingService();
+            objBookingService = new BookingService(); // The booking service holds the database implementation
             CurrentBooking = new Booking();
             rentCommand = new RentButtonCommand(Rent);
         }
 
-        #region Message
+        #region Message to UI
         private string message;
 
         public string Message
@@ -41,22 +41,71 @@ namespace CarRental.ViewModels
         public Booking CurrentBooking
         {
             get { return  currentBooking; }
-            set {  currentBooking = value;
+            set {
+                currentBooking = value switch
+                {
+                    Booking(_,null,null,_) => new Booking(value.BookingNumber,
+                                                          new Van(),
+                                                          new Customer(value.Customer.PersonalIDnr),
+                                                          value.Date),
+
+                    Booking(_,null,_,_) => new Booking(value.BookingNumber, 
+                                                       new Van(), //Currently, only Van is supported
+                                                       value.Customer, 
+                                                       value.Date),                                    
+
+                    Booking(_,_,null,_) => new Booking(value.BookingNumber, 
+                                                       value.Vehicle, 
+                                                       new Customer(value.Customer.PersonalIDnr), 
+                                                       value.Date),
+                    Booking(_,_,_,_) => value
+                };
                 OnPropertyChanged("CurrentBooking");
             }
+
         }
+        
         public void Rent()
+        //When the user clicks the "Rent" button, this method is called using ICommand
         {
-            try
+            var result = CurrentBooking switch
             {
-                var response = objBookingService.Add(CurrentBooking);
+                Booking(null, _, _, _) => "Error, no booking number",
+                Booking(_, null, _, _) => "Error, vehicle choice is incorrect",
+                Booking(_, _, null, _) => "Error, customer information is incorrect",
+                Booking(_, _, _, 0) => "Error, booking date is not entered",
+                _ => "OK"
+            };
+            
+            if(result.Equals("OK"))
+            {
                 
+                var response = objBookingService.Add(CurrentBooking);
+
                 Message = response;
             }
-            catch (Exception e)
+            else
             {
-                //Message = e.Message;
+                Message = result;
             }
+            
+            
+        }
+        public Vehicle checkIfVehicle(string vehicleType)
+        //Check if chosen vehicle type exists
+        {
+            var baseType = typeof(Vehicle);
+            var assembly = typeof(Vehicle).Assembly;
+            List<System.Type> types = assembly.GetTypes().Where(t => t.IsSubclassOf(baseType)).ToList();
+
+            foreach (System.Type t in types)
+            {
+                if (t.ToString().Equals(vehicleType))
+                {
+                    
+                }
+            }
+            return null;
         }
 
         #region Rent Button Command implementation
