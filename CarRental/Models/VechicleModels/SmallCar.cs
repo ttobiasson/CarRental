@@ -8,5 +8,9 @@ namespace CarRental.Models
 {
     class SmallCar : Vehicle
     {
+        public SmallCar()
+        {
+
+        }
     }
 }

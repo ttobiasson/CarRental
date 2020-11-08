@@ -10,12 +10,28 @@ namespace CarRental.Models.Services
 {
     class BookingService
     {
-        //Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
-        Booking booking = new Booking();
 
-        public BookingService(Booking booking)
+        //Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
+        private static List<Booking> ObjBookingList;
+
+        public BookingService()
         {
-            this.booking = booking;
+            ObjBookingList = new List<Booking>()
+            {
+                new Booking()
+            };
+        }
+        public bool Add(Booking objNewBooking)
+        {
+            ObjBookingList.Add(objNewBooking);
+            if (!ObjBookingList.Contains(objNewBooking))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

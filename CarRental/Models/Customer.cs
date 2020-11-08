@@ -22,14 +22,14 @@ namespace CarRental.Models
         #endregion
         
 
-        public Customer(int personalIDnr)
+        public Customer(long personalIDnr)
         {
             this.personalIDnr = personalIDnr;
         }
 
-        private int personalIDnr;
+        private long personalIDnr;
 
-        public int PersonalIDnr
+        public long PersonalIDnr
         {
             get { return personalIDnr; }
             set { personalIDnr = value;

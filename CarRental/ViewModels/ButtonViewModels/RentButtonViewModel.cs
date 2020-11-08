@@ -15,7 +15,7 @@ namespace CarRental.ViewModels
         public RentButtonCommand RentButtonCommand { get; set; }
         public RentButtonViewModel()
         {
-            RentButtonCommand = new RentButtonCommand(this);
+           // RentButtonCommand = new RentButtonCommand();
         }
         public void OnExecute()
         {

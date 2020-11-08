@@ -74,13 +74,12 @@
     <Compile Include="ViewModels\BookingViewModel.cs" />
     <Compile Include="ViewModels\ButtonViewModels\RentButtonViewModel.cs" />
     <Compile Include="ViewModels\ButtonViewModels\ReturnButtonViewModel.cs" />
-    <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\RenterView.xaml.cs">
+      <DependentUpon>RenterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BookingView.xaml.cs">
       <DependentUpon>BookingView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SimpleUI.xaml.cs">
-      <DependentUpon>SimpleUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
@@ -113,18 +112,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BookingView.xaml">
+    <Page Include="Views\RenterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SimpleUI.xaml">
+    <Page Include="Views\BookingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

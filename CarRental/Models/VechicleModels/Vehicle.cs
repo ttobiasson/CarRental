@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace CarRental.Models
 {
-    public class Vehicle
+    public abstract class Vehicle :INotifyPropertyChanged
     {
         #region Code for INotifiedPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -26,6 +26,16 @@ namespace CarRental.Models
         public float CalculatePrice()
         {
             return 0;
+        }
+
+        public int Mileage
+        {
+            get { return mileage; }
+            set
+            {
+                mileage = value;
+                OnPropertyChanged("Mileage");
+            }
         }
     }
 }

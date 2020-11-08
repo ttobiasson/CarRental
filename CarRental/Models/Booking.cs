@@ -21,7 +21,10 @@ namespace CarRental.Models
         }
         #endregion
 
-
+        public Booking()
+        {
+            
+        }
         private string bookingNumber;
         private Customer customer;
         private Vehicle vehicle;

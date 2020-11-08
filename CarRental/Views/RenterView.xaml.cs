@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace CarRental.Views
 {
     /// <summary>
-    /// Interaction logic for SimpleUI.xaml
+    /// Interaction logic for RentView.xaml
     /// </summary>
-    public partial class SimpleUI : UserControl
+    public partial class RentView : UserControl
     {
-        public SimpleUI()
+        public RentView()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
