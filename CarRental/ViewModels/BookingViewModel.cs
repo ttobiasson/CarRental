@@ -24,10 +24,21 @@ namespace CarRental.ViewModels
             rentCommand = new RentButtonCommand(Rent);
         }
 
+        #region Message
+        private string message;
 
+        public string Message
+        {
+            get { return message; }
+            set
+            {
+                message = value;
+                OnPropertyChanged("Message");
+            }
+        }
+        #endregion
 
-        
-        public  Booking CurrentBooking
+        public Booking CurrentBooking
         {
             get { return  currentBooking; }
             set {  currentBooking = value;
@@ -38,15 +49,9 @@ namespace CarRental.ViewModels
         {
             try
             {
-                var IsRented = objBookingService.Add(CurrentBooking);
-                if (IsRented)
-                {
-                    
-                }
-                else
-                {
-                    //Message = "Booking failed";
-                }
+                var response = objBookingService.Add(CurrentBooking);
+                
+                Message = response;
             }
             catch (Exception e)
             {
