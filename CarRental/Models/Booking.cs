@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using CarRental.Models.VehicleModels;
+using System.ComponentModel;
 
 namespace CarRental.Models
 {

@@ -5,10 +5,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Models
+namespace CarRental.Models.VehicleModels
 {
     class Van : Vehicle
     {
+        
         public Van()
         {
             

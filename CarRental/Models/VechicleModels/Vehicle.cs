@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel;
 
-namespace CarRental.Models
+namespace CarRental.Models.VehicleModels
 {
     public class Vehicle : INotifyPropertyChanged
     {
    
         private string registrationNumber;
         private int mileage;
-        private static int kmPrice = 5;
+        private int kmPrice = 5;
         private static int dayPrice = 500;
         public float CalculatePrice()
         {
