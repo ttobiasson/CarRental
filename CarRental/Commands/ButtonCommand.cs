@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace CarRental.Commands
 {
-    class ButtonCommand : ICommand
+    public class ButtonCommand : ICommand
     {
         private Action MethodDelegate;
 

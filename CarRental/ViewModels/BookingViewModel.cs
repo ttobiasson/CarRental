@@ -8,7 +8,7 @@ using CarRental.Commands;
 
 namespace CarRental.ViewModels
 {
-    class BookingViewModel : INotifyPropertyChanged
+    public class BookingViewModel : INotifyPropertyChanged
     {
         private BookingService objBookingService;
         private Booking currentBooking;

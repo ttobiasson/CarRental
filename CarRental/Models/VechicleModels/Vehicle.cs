@@ -7,7 +7,8 @@ namespace CarRental.Models
    
         private string registrationNumber;
         private int mileage;
-        
+        private static int kmPrice = 5;
+        private static int dayPrice = 500;
         public float CalculatePrice()
         {
             return 0;

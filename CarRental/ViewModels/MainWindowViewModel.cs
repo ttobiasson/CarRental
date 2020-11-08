@@ -2,7 +2,7 @@
 
 namespace CarRental.ViewModels
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : INotifyPropertyChanged
     {
         private object _currentView; // Will be used in the future to implement changing view when a button is pressed.
 

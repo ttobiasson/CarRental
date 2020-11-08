@@ -8,9 +8,11 @@ namespace CarRental.Models
 {
     class MiniVan : Vehicle
     {
-        public MiniVan()
+        public MiniVan(int mileage)
         {
-
+            this.Mileage = mileage;
         }
+        
+        
     }
 }

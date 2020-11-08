@@ -107,7 +107,6 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tests\BookingViewModelTests.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\RenterView.xaml.cs">
