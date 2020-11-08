@@ -18,16 +18,17 @@
         <TextBox x:Name="vehicleType" HorizontalAlignment="Left" Height="30" Margin="283,210,0,0" TextWrapping="Wrap" Text="" FontSize="20" VerticalAlignment="Top" Width="325"/>
         <TextBox x:Name="date" HorizontalAlignment="Left" Height="30" Margin="283,270,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.Date}" FontSize="20" VerticalAlignment="Top" Width="325"/>
         <TextBox x:Name="currentVMileage" HorizontalAlignment="Left" Height="30" Margin="283,41,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentBooking.Vehicle.Mileage}" FontSize="20" VerticalAlignment="Top" Width="325"/>
-        
+
         <Label Content="Personal ID number" HorizontalAlignment="Left" Margin="142,153,0,0" VerticalAlignment="Top"/>
         <Label Content="Vehicle type" HorizontalAlignment="Left" Margin="182,214,0,0" VerticalAlignment="Top"/>
         <Label Content="Date" HorizontalAlignment="Left" Margin="221,274,0,0" VerticalAlignment="Top"/>
-        
+
         <Button Command="{Binding Path=RentCommand}" Name="rentVehicleButton" Content="Rent vehicle" FontSize="22" HorizontalAlignment="Left" Margin="381,347,0,0" VerticalAlignment="Top" Width="125" Height="54"/>
 
         <Label Content="Booking number" HorizontalAlignment="Left" Margin="158,99,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,0.494"/>
         <Label Content="Current vehicle mileage(km)" HorizontalAlignment="Left" Margin="98,45,0,0" VerticalAlignment="Top"/>
-        
+
+        <TextBlock Text="{Binding Path=Message}" FontSize="15" HorizontalAlignment="Left" Margin="69,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="93" Width="233"/>
 
     </Grid>
 </UserControl>

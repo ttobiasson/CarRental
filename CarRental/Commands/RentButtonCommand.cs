@@ -11,11 +11,11 @@ namespace CarRental.Commands
     class RentButtonCommand : ICommand
     {
         private RentButtonViewModel _rentButtonViewModel;
-        private Action action;
+        private Action MethodDelegate;
 
-        public RentButtonCommand(Action action)
+        public RentButtonCommand(Action method)
         {
-            this.action = action;
+            this.MethodDelegate = method;
         }
 
 
@@ -29,7 +29,7 @@ namespace CarRental.Commands
 
         public void Execute(object parameter)
         {
-            action();
+            MethodDelegate();
         }
         #endregion
     }

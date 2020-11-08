@@ -9,28 +9,24 @@ using CarRental.Models;
 using CarRental.Models.Services;
 using CarRental.Commands;
 using System.Windows;
+using MySqlConnector;
 
 namespace CarRental.ViewModels
 {
     class BookingViewModel : INotifyPropertyChanged
     {
         BookingService objBookingService;
-        Booking booking;
+        private Booking currentBooking;
         public BookingViewModel()
         {
             objBookingService = new BookingService();
             CurrentBooking = new Booking();
             rentCommand = new RentButtonCommand(Rent);
         }
-        public Booking Booking
-        {
-            get { return booking; }
-            set { booking = value; 
-                OnPropertyChanged("Booking");
-            }
-        }
-        private Booking currentBooking;
 
+
+
+        
         public  Booking CurrentBooking
         {
             get { return  currentBooking; }
@@ -45,20 +41,20 @@ namespace CarRental.ViewModels
                 var IsRented = objBookingService.Add(CurrentBooking);
                 if (IsRented)
                 {
-                    MessageBox.Show("Booking saved");
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Save failed");
+                    //Message = "Booking failed";
                 }
             }
             catch (Exception e)
             {
-
+                //Message = e.Message;
             }
         }
 
-        #region Rent Button ICommand implementation
+        #region Rent Button Command implementation
         private RentButtonCommand rentCommand;
 
         public RentButtonCommand RentCommand

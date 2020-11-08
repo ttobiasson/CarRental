@@ -7,10 +7,10 @@
         xmlns:view="clr-namespace:CarRental.Views"
         xmlns:viewModel="clr-namespace:CarRental.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="550" Width="800"
         xmlns:vw="clr-namespace:CarRental.Views">
     <Window.DataContext>
-        <viewModel:MainWindowViewModel/>
+        <viewModel:BookingViewModel/>
     </Window.DataContext>
     <Grid>
         <view:SimpleUI></view:SimpleUI>
