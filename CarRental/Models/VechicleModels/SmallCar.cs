@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 namespace CarRental.Models.VehicleModels
 {
-    class SmallCar : Vehicle
+    public class SmallCar : Vehicle
     {
         public SmallCar()
         {

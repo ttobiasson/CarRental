@@ -18,7 +18,7 @@ namespace CarRental.ViewModels
         public BookingViewModel()
         {
             objBookingService = new BookingService(); // The booking service holds the database implementation
-            CurrentBooking = new Booking("init", new Vehicle(), new Customer(), 0);
+            CurrentBooking = new Booking("Change me", new Vehicle(), new Customer(), 0);
             rentCommand = new ButtonCommand(Rent);
         }
 
@@ -46,15 +46,14 @@ namespace CarRental.ViewModels
             }
             else { Message = result; }
             
-            
         }
 
         public string checkCurrentBooking(Booking currentbooking)
         {
-            var result = CurrentBooking switch
+            var result = currentbooking switch
             //Check if the booking information isn't complete
             {
-                Booking("init", _, _, _) => "Error, no booking number",
+                Booking(null, _, _, _) => "Error, no booking number",
                 Booking(_, null, _, _) => "Error, vehicle choice is incorrect",
                 Booking(_, _, null, _) => "Error, customer information is incorrect",
                 Booking(_, _, _, 0) => "Error, booking date is not entered",
@@ -71,10 +70,7 @@ namespace CarRental.ViewModels
             var baseType = typeof(Vehicle);
             var assembly = typeof(Vehicle).Assembly;
             List<System.Type> types = assembly.GetTypes().Where(t => t.IsSubclassOf(baseType)).ToList();
-            foreach(System.Type t in types)
-            {
-                Console.WriteLine(t);
-            }
+           
             foreach (System.Type t in types)
             {
                 

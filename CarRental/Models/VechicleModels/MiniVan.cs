@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Models.VehicleModels
 {
-    class MiniVan : Vehicle
+    public class MiniVan : Vehicle
     {
         public MiniVan(int mileage)
         {
