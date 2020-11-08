@@ -1,5 +1,4 @@
-﻿using CarRental.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CarRental
+namespace CarRental.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SimpleUI.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SimpleUI : UserControl
     {
-        public MainWindow()
+        public SimpleUI()
         {
             InitializeComponent();
         }
 
-        
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

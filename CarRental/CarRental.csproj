@@ -60,8 +60,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\RentButtonCommand.cs" />
+    <Compile Include="Commands\ReturnButtonCommand.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Services\BookingService.cs" />
     <Compile Include="Models\VechicleModels\MiniVan.cs" />
     <Compile Include="Models\VechicleModels\SmallCar.cs" />
     <Compile Include="Models\VechicleModels\Van.cs" />
@@ -71,9 +73,14 @@
     </Compile>
     <Compile Include="ViewModels\BookingViewModel.cs" />
     <Compile Include="ViewModels\ButtonViewModels\RentButtonViewModel.cs" />
+    <Compile Include="ViewModels\ButtonViewModels\ReturnButtonViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
-    <Compile Include="Views\RentView.xaml.cs">
-      <DependentUpon>RentView.xaml</DependentUpon>
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\BookingView.xaml.cs">
+      <DependentUpon>BookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SimpleUI.xaml.cs">
+      <DependentUpon>SimpleUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
@@ -113,7 +120,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RentView.xaml">
+    <Page Include="Views\BookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SimpleUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,6 +132,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

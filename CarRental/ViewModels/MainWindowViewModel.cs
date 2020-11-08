@@ -1,29 +1,28 @@
-﻿using System;
-using System.CodeDom;
+﻿using CarRental.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CarRental.Models;
+using System.Windows.Controls;
 
 namespace CarRental.ViewModels
 {
-    class BookingViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : INotifyPropertyChanged
     {
+        private object _currentView; // = new SimpleUI();
 
-        Booking booking;
-        public BookingViewModel()
+        public object CurrentView
         {
-            booking = new Booking();
-        }
-        public Booking Booking
-        {
-            get { return booking; }
-            set { booking = value; 
-                OnPropertyChanged("Booking"); 
+            get { return _currentView; }
+            set
+            {
+                _currentView = value;
+                OnPropertyChanged("CurrentView");
             }
         }
+        
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,6 +34,5 @@ namespace CarRental.ViewModels
             }
         }
         #endregion
-
     }
 }

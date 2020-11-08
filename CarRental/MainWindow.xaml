@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarRental"
         xmlns:view="clr-namespace:CarRental.Views"
+        xmlns:viewModel="clr-namespace:CarRental.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         xmlns:vw="clr-namespace:CarRental.Views">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        <ContentControl Content="{Binding StartView, Mode=OneWay}"></ContentControl>
-            
+        <view:SimpleUI></view:SimpleUI>
+        <!-- <ContentControl Content="{Binding CurrentView, Mode=OneWay}" /> -->
     </Grid>
 </Window>

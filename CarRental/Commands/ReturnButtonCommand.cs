@@ -1,4 +1,4 @@
-﻿using CarRental.ViewModels;
+﻿using CarRental.ViewModels.ButtonViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +8,18 @@ using System.Windows.Input;
 
 namespace CarRental.Commands
 {
-    class RentButtonCommand : ICommand
+    class ReturnButtonCommand : ICommand
     {
-        private RentButtonViewModel _rentButtonViewModel;
+        private ReturnButtonViewModel _returnButtonViewModel;
 
-        public RentButtonCommand(RentButtonViewModel rentButtonViewModel)
+        public ReturnButtonCommand(ReturnButtonViewModel returnButtonViewModel)
         {
-            _rentButtonViewModel = rentButtonViewModel;
+            _returnButtonViewModel = returnButtonViewModel;
         }
-
-
-
+        
         #region ICommand implementation
         public event EventHandler CanExecuteChanged;
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -28,7 +27,7 @@ namespace CarRental.Commands
 
         public void Execute(object parameter)
         {
-            _rentButtonViewModel.OnExecute();
+            _returnButtonViewModel.OnExecute();
         }
         #endregion
     }
