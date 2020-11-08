@@ -1,31 +1,12 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace CarRental.Models.Services
 {
     class BookingService : INotifyPropertyChanged
     {
-        #region Code for INotifiedPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        #endregion
 
-
-        
         public string Add(Booking objNewBooking)
         {
             string bookingNumber = objNewBooking.BookingNumber;
@@ -64,7 +45,7 @@ namespace CarRental.Models.Services
                 }
                 else
                 {
-                    return "Null";
+                    return "Nothing to show";
                 }
             }
             catch (Exception ex)
@@ -74,6 +55,16 @@ namespace CarRental.Models.Services
             
         }
 
+        #region INotifiedPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion
 
 
     }

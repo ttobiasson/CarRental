@@ -18,9 +18,9 @@ namespace CarRental.Views
     /// <summary>
     /// Interaction logic for SimpleUI.xaml
     /// </summary>
-    public partial class SimpleUI : UserControl
+    public partial class BookingView : UserControl
     {
-        public SimpleUI()
+        public BookingView()
         {
             InitializeComponent();
         }

@@ -1,31 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Windows.Media.Animation;
+﻿using System.ComponentModel;
 
 namespace CarRental.Models
 {
     public class Booking : INotifyPropertyChanged
     {
+     
+        private string bookingNumber;
+        private Customer customer;
+        private Vehicle vehicle;
+        private int date;
 
-        #region Code for INotifiedPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        #endregion
 
-        public Booking()
-        {
-            
-        }
+        public Booking(){}
         public Booking(string bookingNumber, Vehicle v, Customer c, int date)
         {
             this.bookingNumber = bookingNumber;
@@ -33,10 +19,7 @@ namespace CarRental.Models
             this.vehicle = v;
             this.date = date;
         }
-        private string bookingNumber;
-        private Customer customer;
-        private Vehicle vehicle;
-        private int date;
+
 
         public int Date
         {
@@ -68,6 +51,7 @@ namespace CarRental.Models
         }
 
         public void Deconstruct(out string bookingnr, out Vehicle vehicle, out Customer customer, out int date)
+        //used to enable a feature from C# 8.0, recursive patterns
         {
             bookingnr = BookingNumber;
             vehicle = Vehicle;
@@ -76,5 +60,16 @@ namespace CarRental.Models
             
         }
 
+
+        #region INotifiedPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion
     }
 }

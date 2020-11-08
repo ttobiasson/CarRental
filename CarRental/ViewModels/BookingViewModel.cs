@@ -10,28 +10,17 @@ namespace CarRental.ViewModels
 {
     class BookingViewModel : INotifyPropertyChanged
     {
-        BookingService objBookingService;
+        private BookingService objBookingService;
         private Booking currentBooking;
+
+
         public BookingViewModel()
         {
             objBookingService = new BookingService(); // The booking service holds the database implementation
             CurrentBooking = new Booking("init", new Vehicle(), new Customer(), 0);
-            rentCommand = new RentButtonCommand(Rent);
+            rentCommand = new ButtonCommand(Rent);
         }
 
-        #region Message to UI
-        private string message;
-
-        public string Message
-        {
-            get { return message; }
-            set
-            {
-                message = value;
-                OnPropertyChanged("Message");
-            }
-        }
-        #endregion
 
         public Booking CurrentBooking
         {
@@ -47,8 +36,9 @@ namespace CarRental.ViewModels
         //When the user clicks the "Rent" button, this method is called using ICommand
         {
             var result = CurrentBooking switch
+            //Check if the booking information isn't complete
             {
-                Booking(null, _, _, _) => "Error, no booking number",
+                Booking("init", _, _, _) => "Error, no booking number",
                 Booking(_, null, _, _) => "Error, vehicle choice is incorrect",
                 Booking(_, _, null, _) => "Error, customer information is incorrect",
                 Booking(_, _, _, 0) => "Error, booking date is not entered",
@@ -57,15 +47,10 @@ namespace CarRental.ViewModels
             
             if(result.Equals("OK"))
             {
-                
                 var response = objBookingService.Add(CurrentBooking);
-
                 Message = response;
             }
-            else
-            {
-                Message = result;
-            }
+            else { Message = result; }
             
             
         }
@@ -86,17 +71,7 @@ namespace CarRental.ViewModels
             return false;
         }
 
-        #region Rent Button Command implementation
-        private RentButtonCommand rentCommand;
-
-        public RentButtonCommand RentCommand
-        {
-            get { return rentCommand; }
-        }
-        #endregion
-
-
-        #region Implementation of INotifyPropertyChanged
+        #region INotifiedPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
         {
@@ -106,6 +81,30 @@ namespace CarRental.ViewModels
             }
         }
         #endregion
+
+        #region Rent ButtonCommand implementation
+        private ButtonCommand rentCommand;
+
+        public ButtonCommand RentCommand
+        {
+            get { return rentCommand; }
+        }
+        #endregion
+
+        #region Message to UI
+        private string message;
+
+        public string Message
+        {
+            get { return message; }
+            set
+            {
+                message = value;
+                OnPropertyChanged("Message");
+            }
+        }
+        #endregion
+
 
     }
 }

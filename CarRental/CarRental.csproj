@@ -96,8 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RentButtonCommand.cs" />
-    <Compile Include="Commands\ReturnButtonCommand.cs" />
+    <Compile Include="Commands\ButtonCommand.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Services\BookingService.cs" />
@@ -110,8 +109,6 @@
     </Compile>
     <Compile Include="Tests\BookingViewModelTests.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />
-    <Compile Include="ViewModels\ButtonViewModels\RentButtonViewModel.cs" />
-    <Compile Include="ViewModels\ButtonViewModels\ReturnButtonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\RenterView.xaml.cs">
       <DependentUpon>RenterView.xaml</DependentUpon>

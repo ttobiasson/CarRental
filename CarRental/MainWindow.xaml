@@ -13,7 +13,7 @@
         <viewModel:BookingViewModel/>
     </Window.DataContext>
     <Grid>
-        <view:SimpleUI></view:SimpleUI>
+        <view:BookingView></view:BookingView>
         <!-- <ContentControl Content="{Binding CurrentView, Mode=OneWay}" /> -->
     </Grid>
 </Window>

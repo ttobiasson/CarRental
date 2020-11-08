@@ -1,36 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace CarRental.Models
 {
     public class Customer : INotifyPropertyChanged
     {
+        private long personalIDnr;
 
-        #region Code for INotifiedPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        #endregion
-
-        public Customer()
-        {
-
-        }
+        public Customer() { }
         public Customer(long personalIDnr)
         {
             this.personalIDnr = personalIDnr;
         }
 
-        private long personalIDnr;
 
         public long PersonalIDnr
         {
@@ -42,7 +23,17 @@ namespace CarRental.Models
         public void Deconstruct(out long personalIDnr)
         {
             personalIDnr = PersonalIDnr;
-            
         }
+
+        #region INotifiedPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion
     }
 }
