@@ -1,5 +1,9 @@
-﻿using CarRental.Models.VehicleModels;
+﻿using CarRental.Models.Services;
+using CarRental.Models.VehicleModels;
+using CarRental.ViewModels;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace CarRental.Models
 {
@@ -10,7 +14,6 @@ namespace CarRental.Models
         private Customer customer;
         private Vehicle vehicle;
         private int date;
-
 
         public Booking(){}
         public Booking(string bookingNumber, Vehicle v, Customer c, int date)
@@ -51,6 +54,8 @@ namespace CarRental.Models
             }
         }
 
+
+        
         public void Deconstruct(out string bookingnr, out Vehicle vehicle, out Customer customer, out int date)
         //used to enable a feature from C# 8.0, recursive patterns
         {

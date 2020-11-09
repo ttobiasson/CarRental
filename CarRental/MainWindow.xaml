@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarRental"
         xmlns:view="clr-namespace:CarRental.Views"
+        xmlns:service="clr-namespace:CarRental.Models.Services"
         xmlns:viewModel="clr-namespace:CarRental.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800"
         xmlns:vw="clr-namespace:CarRental.Views">
     <Window.DataContext>
-        <viewModel:BookingViewModel/>
+        <service:BookingService/>
     </Window.DataContext>
     <Grid>
         <view:BookingView></view:BookingView>

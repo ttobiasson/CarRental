@@ -14,6 +14,10 @@ namespace CarRental.Models.VehicleModels
         {
             
         }
+        public Van(int mileage)
+        {
+            this.Mileage = mileage;
+        }
         
     }
 }
