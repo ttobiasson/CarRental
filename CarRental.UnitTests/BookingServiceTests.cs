@@ -43,6 +43,23 @@ namespace CarRental.UnitTests
             var result = bookingService.CheckCurrentBooking(booking);
             Assert.AreNotEqual("OK", result);
         }
+        [TestMethod]
+        public void CheckCurrentBooking_CustomerIsFaulty_ReturnsErrorMsg()
+        {
+            var booking = new Booking("bookingnr", new MiniVan(12500), new Customer(), 1109);
+            var bookingService = new BookingService();
+            var result = bookingService.CheckCurrentBooking(booking);
+            Assert.AreNotEqual("OK",result);
+        }
+
+        [TestMethod]
+        public void CheckCurrentBooking_VehicleIsFaulty_ReturnsErrorMsg()
+        {
+            var booking = new Booking("bookingnr", new MiniVan(-1), new Customer(1234567890), 1109);
+            var bookingService = new BookingService();
+            var result = bookingService.CheckCurrentBooking(booking);
+            Assert.AreNotEqual("OK", result);
+        }
 
         /* ---DATABASE IMPLEMENTATION SPECIFIC---
         [TestMethod]
