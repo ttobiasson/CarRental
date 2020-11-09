@@ -38,7 +38,25 @@ Tasks for 3:
 3.1 Add new "See booking" button on start window
 3.2 Add page where customer booking information can be displayed
 3.3 Add logic for button so it redirects to a the new page
+3.4 Add method to get information from database
+3.5 Implement logic for displaying information
 
 Acceptance criteria for 3:
 3.4 Customer can click the button and see their booking by supplying their details
 3.5 Logic for getting the booking passes tests
+
+Tasks for 4:
+4.1 Have database implementation separate from models
+4.2 Implement services according to design document
+
+Acceptance critera for 4:
+4.3 Models, ViewModels, View are all decoupled from service
+
+Tasks for 5:
+5.1 Implement Views
+5.2 Implement ModelViews
+5.3 Implement MVVM folder structure
+5.4 Implement models according to design document
+
+Acceptance critera for 5:
+5.5 MVVM structure follows best practices
