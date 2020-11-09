@@ -1,3 +1,8 @@
+--- THIS IS A BACKUP OF THE TRELLO BOARD ---
+--- FOR AN EASIER OVERVIEW AND READ      ---
+--- CHECK THE TRELLO LINK                ---
+--- https://trello.com/b/czY6Vi8b        ---
+
 EPIC: Simple car rental booking system
 
 User Stories:
