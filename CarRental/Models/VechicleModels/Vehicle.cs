@@ -16,7 +16,7 @@ namespace CarRental.Models.VehicleModels
        
 
         public void Deconstruct(out int varmileage)
-        //used to enable a feature from C# 8.0, recursive patterns
+        // Used to enable a feature from C# 8.0, recursive patterns.
         {
             varmileage = mileage;
         }
@@ -30,8 +30,22 @@ namespace CarRental.Models.VehicleModels
             }
         }
 
-        public int KmPrice { get { return kmPrice; } set { dayPrice = value; } }
-        public int DayPrice { get { return dayPrice; } set { dayPrice = value; } }
+        public int KmPrice { 
+            get { return kmPrice; } 
+            set 
+            { 
+                kmPrice = value;
+                OnPropertyChanged("KmPrice");
+            } 
+        }
+        public int DayPrice { 
+            get { return dayPrice; } 
+            set 
+            { 
+                dayPrice = value;
+                OnPropertyChanged("DayPrice");
+            } 
+        }
 
         #region INotifiedPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;

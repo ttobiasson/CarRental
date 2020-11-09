@@ -1,9 +1,5 @@
-﻿using CarRental.Models.Services;
-using CarRental.Models.VehicleModels;
-using CarRental.ViewModels;
-using System.Collections.Generic;
+﻿using CarRental.Models.VehicleModels;
 using System.ComponentModel;
-using System.Linq;
 
 namespace CarRental.Models
 {
@@ -16,11 +12,11 @@ namespace CarRental.Models
         private int date;
 
         public Booking(){}
-        public Booking(string bookingNumber, Vehicle v, Customer c, int date)
+        public Booking(string bookingNumber, Vehicle vehicle, Customer customer, int date)
         {
             this.bookingNumber = bookingNumber;
-            this.customer = c;
-            this.vehicle = v;
+            this.customer = customer;
+            this.vehicle = vehicle;
             this.date = date;
         }
 

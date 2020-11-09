@@ -1,6 +1,5 @@
 ﻿using CarRental.Commands;
 using CarRental.Models.VehicleModels;
-using CarRental.ViewModels;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -15,17 +14,24 @@ namespace CarRental.Models.Services
 
         public BookingService()
         {
-            this.currentBooking   = new Booking("Change me", new Van(0), new Customer(0), 0);
+            currentBooking = new Booking {BookingNumber = "Change me",
+                                          Vehicle       = new Vehicle(0), 
+                                          Customer      = new Customer(0), 
+                                          Date          = 0 }; 
             rentCommand           = new ButtonCommand(Rent);
         }
 
         public Booking CurrentBooking
         {
             get { return currentBooking; }
-            set { currentBooking = value; OnPropertyChanged("CurrentBooking"); }
+            set { currentBooking = value; 
+                  OnPropertyChanged("CurrentBooking"); 
+            }
         }
+
         public void Rent()
-        //When the user clicks the "Rent" button, this method is called using ICommand
+        // When the user clicks the "Rent" button, this method 
+        // is called using ICommand.
         {
             var result = CheckCurrentBooking(CurrentBooking);
 
@@ -41,9 +47,9 @@ namespace CarRental.Models.Services
         public string CheckCurrentBooking(Booking currentbooking)
         {
             var pidnrLength = currentbooking.Customer?.PersonalIDnr.ToString().Length;
-            var pidnr = currentbooking.Customer?.PersonalIDnr.ToString();
-            var result = currentbooking switch
-            //Check if the booking information isn't complete
+            string pidnr    = currentbooking.Customer?.PersonalIDnr.ToString();
+            var result      = currentbooking switch
+            // Check if the booking information isn't complete.
             {
                 Booking(null, _, _, _) => "Error, no booking number",
                 Booking(_, null, _, _) => "Error, vehicle choice is incorrect",
@@ -52,9 +58,10 @@ namespace CarRental.Models.Services
                 _ => "OK"
             };
 
+            // Check that the Customer and Vehicle has valid information.
             if (result.Equals("OK"))
             {
-                if (pidnrLength < 10 || pidnr.Contains("-1"))
+                if ((pidnrLength < 10) || (pidnr.Contains("-1")))
                     result = "Customer information is incorrect";
                 if (currentbooking.Vehicle.Mileage <= 0)
                     result = "Vehicle information is incorrect";
@@ -65,7 +72,7 @@ namespace CarRental.Models.Services
 
         public bool CheckIfExtendsVehicle(string vehicleType)
         //Check if class extends Vehicle (I.E is a Vehicle)
-        //so we can verify user input, not yet used
+        //so we can verify user input, not yet used.
         {
             var baseType = typeof(Vehicle);
             var assembly = typeof(Vehicle).Assembly;
@@ -84,16 +91,18 @@ namespace CarRental.Models.Services
         
 
         public string AddBookingToDatabase(Booking objNewBooking)
+        // Adds a booking to the database, and returns "Booking placed"
+        // if no exception was thrown.
         {
             string bookingNumber = objNewBooking.BookingNumber;
-            string customer = objNewBooking.Customer.PersonalIDnr.ToString();
-            string vehicle = objNewBooking.Vehicle.GetType().ToString();
-            string date = objNewBooking.Date.ToString();
-            string mileage = objNewBooking.Vehicle.Mileage.ToString();
+            string customer      = objNewBooking.Customer.PersonalIDnr.ToString();
+            string vehicle       = objNewBooking.Vehicle.GetType().ToString();
+            string date          = objNewBooking.Date.ToString();
+            string mileage       = objNewBooking.Vehicle.Mileage.ToString();
 
             try
             {
-                var cs = "Host=localhost;Username=postgres;Password=hatarlolmanlane;Database=bookings";
+                var cs = "Host=localhost;Username=postgres;Password=,2342345;Database=bookings";
 
                 using var con = new NpgsqlConnection(cs);
                 con.Open();
@@ -106,29 +115,18 @@ namespace CarRental.Models.Services
                          + date          + "," 
                          + mileage       + ")";
 
-                var selectSQL = "SELECT * FROM bookings";
-
                 using var insert = new NpgsqlCommand(insertSQL, con);
-                using var select = new NpgsqlCommand(selectSQL, con);
 
                 insert.ExecuteScalar();
-                
-                var response = select.ExecuteScalar();
-                if(response != null)
-                {
-                    return "Booking placed";
-                }
-                else
-                {
-                    return "Nothing to show";
-                }
             }
             catch (Exception e)
             {
                 return e.Message;
             }
-            
+
+            return "Booking placed";
         }
+
         #region Message
         private string message;
 

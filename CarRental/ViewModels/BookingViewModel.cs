@@ -1,18 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using CarRental.Models;
-using CarRental.Models.Services;
-using CarRental.Commands;
-using System;
-using CarRental.Models.VehicleModels;
+﻿using System.ComponentModel;
 
 namespace CarRental.ViewModels
 {
     public class BookingViewModel : INotifyPropertyChanged
     {
-
-
         public BookingViewModel() {}
 
 
@@ -26,10 +17,6 @@ namespace CarRental.ViewModels
             }
         }
         #endregion
-
-        
-
-
 
     }
 }

@@ -7,6 +7,7 @@ namespace CarRental.Models
         private long personalIDnr;
 
         public Customer() { }
+
         public Customer(long personalIDnr)
         {
             this.personalIDnr = personalIDnr;
@@ -16,8 +17,10 @@ namespace CarRental.Models
         public long PersonalIDnr
         {
             get { return personalIDnr; }
-            set { personalIDnr = value;
-                  OnPropertyChanged("PersonalIDnr");
+            set 
+            { 
+                personalIDnr = value;
+                OnPropertyChanged("PersonalIDnr");
             }
         }
         public void Deconstruct(out long personalIDnr)

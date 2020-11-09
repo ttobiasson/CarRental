@@ -1,7 +1,5 @@
-﻿using System;
-using CarRental.Models;
+﻿using CarRental.Models;
 using CarRental.Models.Services;
-using CarRental.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CarRental.Models.VehicleModels;
 
@@ -14,7 +12,9 @@ namespace CarRental.UnitTests
         public void CheckIfExtendsVehicle_TypeExtendsVehicle_ReturnsTrue()
         {
             var bookingService = new BookingService();
-            var result = bookingService.CheckIfExtendsVehicle("CarRental.Models.VehicleModels.Van");
+            var result = bookingService
+                .CheckIfExtendsVehicle("CarRental.Models.VehicleModels.Van");
+
             Assert.IsTrue(result);
         }
 
@@ -22,16 +22,27 @@ namespace CarRental.UnitTests
         public void CheckIfExtendsVehicle_TypeDoesntExtendVehicle_ReturnsFalse()
         {
             var bookingService = new BookingService();
-            var result = bookingService.CheckIfExtendsVehicle("CarRental.Models.Customer");
+            var result = bookingService
+                .CheckIfExtendsVehicle("CarRental.Models.Customer");
+
             Assert.IsFalse(result);
         }
 
         [TestMethod]
         public void CheckCurrentBooking_BookingIsCorrect_ReturnsOK()
         {
-            var booking = new Booking("bookingnr", new MiniVan(12500), new Customer(9401089999), 1108);
+            var booking = new Booking 
+            { 
+                BookingNumber = "bookingnr", 
+                Vehicle = new MiniVan(12500), 
+                Customer = new Customer(9401089999), 
+                Date = 1108 
+            };
+
             var bookingService = new BookingService();
-            var result = bookingService.CheckCurrentBooking(booking);
+            var result = bookingService
+                .CheckCurrentBooking(booking);
+
             Assert.AreEqual("OK", result);
         }
 
@@ -46,18 +57,34 @@ namespace CarRental.UnitTests
         [TestMethod]
         public void CheckCurrentBooking_CustomerIsFaulty_ReturnsErrorMsg()
         {
-            var booking = new Booking("bookingnr", new MiniVan(12500), new Customer(), 1109);
+            var booking = new Booking
+            {
+                BookingNumber = "bookingnr",
+                Vehicle = new MiniVan(12500),
+                Customer = new Customer(),
+                Date = 1108
+            };
+
             var bookingService = new BookingService();
             var result = bookingService.CheckCurrentBooking(booking);
+
             Assert.AreNotEqual("OK",result);
         }
 
         [TestMethod]
         public void CheckCurrentBooking_VehicleIsFaulty_ReturnsErrorMsg()
         {
-            var booking = new Booking("bookingnr", new MiniVan(-1), new Customer(1234567890), 1109);
+            var booking = new Booking
+            {
+                BookingNumber = "bookingnr",
+                Vehicle = new MiniVan(-1),
+                Customer = new Customer(9401089999),
+                Date = 1108
+            };
+
             var bookingService = new BookingService();
             var result = bookingService.CheckCurrentBooking(booking);
+
             Assert.AreNotEqual("OK", result);
         }
 
