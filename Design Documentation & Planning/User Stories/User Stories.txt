@@ -1,0 +1,44 @@
+EPIC: Simple car rental booking system
+
+User Stories:
+1. As a customer I want to rent a vehicle via an app so that I can save time.
+2. As a customer I want to return the vehicle via an app so that I can save time.
+3. As a customer I want to be able to change my booking so that I can modify it if I need to.
+4. As a business owner I want to be able to change how data is stored in case I want to use other data storage techniques.
+5. As a business owner I want to be able to change how data is stored in case I want to use other data storage techniques.
+
+
+Tasks for 1:
+1.1 Add booking page where the user can book a vehicle (Done)
+1.2 Add "Rent" button on booking page (Done)
+1.3 Add a field for personal identification number, vehicle type, booking date, booking number, vehicle mileage (Done)
+1.4 Logic for "Rent vehicle" button. (Done)
+1.5 Store booking in database when "Rent vehicle" is pressed (Done)
+1.6 Check required user input for correctness (In progress)
+1.7 Connect input vehicle type with actual types (In progress)
+
+Acceptance critera for 1
+1.8 Fields are easy to understand what they should contain
+1.9 Logic for booking process passed unit tests
+
+Tasks for 2:
+2.1 Add a "Return" button on the start page
+2.2 "Return vehicle" button after the information has been entered on the return page
+2.3 Logic for "Return vehicle" button
+2.4 Add fields for personal identification number, booking number and mileage driven.
+2.5 Fetch booking from database and show it after pressing return vehicle.
+2.6 implement CalculatePrice functions (Done)
+
+Acceptance criteria for 2:
+2.7 Fields are easy to understand what they should contain
+2.8 Logic for return process passes unit tests
+2.9 Check that fields can only contain the right input
+
+Tasks for 3:
+3.1 Add new "See booking" button on start window
+3.2 Add page where customer booking information can be displayed
+3.3 Add logic for button so it redirects to a the new page
+
+Acceptance criteria for 3:
+3.4 Customer can click the button and see their booking by supplying their details
+3.5 Logic for getting the booking passes tests
