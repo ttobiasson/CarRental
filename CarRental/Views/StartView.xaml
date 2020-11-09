@@ -9,6 +9,6 @@
     <Grid>
         <Button Name ="rentVehicle" Content="Rent Vehicle" FontSize="20" HorizontalAlignment="Left" Margin="164,226,0,0" VerticalAlignment="Top" Width="135" Height="59"/>
         <Button Name ="returnVehicle" Content="Return Vehicle" FontSize="20" HorizontalAlignment="Left" Margin="506,226,0,0" VerticalAlignment="Top" Width="135" Height="59"/>
-        <TextBlock Text="Welcome to Toms Vehicle Rental System" FontSize="20" HorizontalAlignment="Left" Margin="221,45,0,0" VerticalAlignment="Top" Height="68" Width="365"/>
+        <TextBlock Text="Welcome to ... Vehicle Rental System" FontSize="20" HorizontalAlignment="Left" Margin="221,45,0,0" VerticalAlignment="Top" Height="68" Width="365"/>
     </Grid>
 </UserControl>
