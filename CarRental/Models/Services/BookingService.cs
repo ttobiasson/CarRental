@@ -15,7 +15,7 @@ namespace CarRental.Models.Services
 
         public BookingService()
         {
-            this.currentBooking   = new Booking("Change me", new Van(), new Customer(0), 0);
+            this.currentBooking   = new Booking("Change me", new Van(0), new Customer(0), 0);
             rentCommand           = new ButtonCommand(Rent);
         }
 
@@ -40,6 +40,8 @@ namespace CarRental.Models.Services
 
         public string CheckCurrentBooking(Booking currentbooking)
         {
+            var pidnrLength = currentbooking.Customer?.PersonalIDnr.ToString().Length;
+            var pidnr = currentbooking.Customer?.PersonalIDnr.ToString();
             var result = currentbooking switch
             //Check if the booking information isn't complete
             {
@@ -49,6 +51,14 @@ namespace CarRental.Models.Services
                 Booking(_, _, _, 0) => "Error, booking date is not entered",
                 _ => "OK"
             };
+
+            if (result.Equals("OK"))
+            {
+                if (pidnrLength < 10 || pidnr.Contains("-1"))
+                    result = "Customer information is incorrect";
+                if (currentbooking.Vehicle.Mileage <= 0)
+                    result = "Vehicle information is incorrect";
+            }
 
             return result;
         }

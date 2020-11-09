@@ -5,16 +5,21 @@ namespace CarRental.Models.VehicleModels
     public class Vehicle : INotifyPropertyChanged
     {
    
-        private string registrationNumber;
         private int mileage;
         private int kmPrice = 5;
-        private static int dayPrice = 500;
-        public float CalculatePrice()
+        private int dayPrice = 500;
+
+        public Vehicle(int mileage)
         {
-            return 0;
-        }        
+           Mileage = mileage;
+        }
+       
 
-
+        public void Deconstruct(out int varmileage)
+        //used to enable a feature from C# 8.0, recursive patterns
+        {
+            varmileage = mileage;
+        }
         public int Mileage
         {
             get { return mileage; }
@@ -24,14 +29,9 @@ namespace CarRental.Models.VehicleModels
                 OnPropertyChanged("Mileage");
             }
         }
-        public string RegistrationNumber
-        {
-            get { return registrationNumber; }
-            set { registrationNumber = value;
-                OnPropertyChanged("RegistrationNumber");
 
-            }
-        }
+        public int KmPrice { get { return kmPrice; } set { dayPrice = value; } }
+        public int DayPrice { get { return dayPrice; } set { dayPrice = value; } }
 
         #region INotifiedPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;

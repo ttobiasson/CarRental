@@ -29,7 +29,7 @@ namespace CarRental.UnitTests
         [TestMethod]
         public void CheckCurrentBooking_BookingIsCorrect_ReturnsOK()
         {
-            var booking = new Booking("bookingnr", new Van(), new Customer(0), 1108);
+            var booking = new Booking("bookingnr", new MiniVan(12500), new Customer(9401089999), 1108);
             var bookingService = new BookingService();
             var result = bookingService.CheckCurrentBooking(booking);
             Assert.AreEqual("OK", result);
